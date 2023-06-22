@@ -57,7 +57,13 @@ class MyApp extends StatelessWidget {
       ],
       builder: (context, child) => MaterialApp.router(
         routerConfig: router,
-        theme: ThemeData.light(useMaterial3: true),
+        theme: ThemeData.light(useMaterial3: true).copyWith(
+          floatingActionButtonTheme: const FloatingActionButtonThemeData(
+            backgroundColor: Colors.black,
+            shape: CircleBorder(),
+            elevation: 0,
+          ),
+        ),
         debugShowCheckedModeBanner: false,
       ),
     );

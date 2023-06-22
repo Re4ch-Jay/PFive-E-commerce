@@ -15,6 +15,7 @@ class MyNavbar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       child: GNav(
+        padding: const EdgeInsets.all(10),
         onTabChange: onTabChange!,
         backgroundColor: Colors.transparent,
         activeColor: Colors.black,

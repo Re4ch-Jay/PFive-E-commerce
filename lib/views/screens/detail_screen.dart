@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:motion_toast/motion_toast.dart';
+import 'package:p_five_ecommerce/controllers/cart/cart_controller.dart';
 import 'package:p_five_ecommerce/models/product_model.dart';
 import 'package:p_five_ecommerce/views/widgets/cart_icon.dart';
+import 'package:provider/provider.dart';
 
 class DetailScreen extends StatelessWidget {
   final int id;
@@ -94,6 +98,21 @@ class DetailScreen extends StatelessWidget {
               Text(product.description!)
             ],
           ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Provider.of<Cart>(context, listen: false).addItemToCart(product);
+          MotionToast.success(
+            animationDuration: const Duration(seconds: 2),
+            title: const Text("Success"),
+            description: const Text("Check your cart"),
+          ).show(context);
+          // context.pop();
+        },
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
         ),
       ),
     );
