@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:p_five_ecommerce/models/product_model.dart';
+import 'package:p_five_ecommerce/views/widgets/cart_icon.dart';
 
 class DetailScreen extends StatelessWidget {
   final int id;
@@ -14,12 +14,7 @@ class DetailScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         title: const Text('Product Detail'),
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.shopping_cart),
-            onPressed: () => context.push('/cart'),
-          )
-        ],
+        actions: const [CartIcon()],
       ),
       body: SingleChildScrollView(
         child: Padding(

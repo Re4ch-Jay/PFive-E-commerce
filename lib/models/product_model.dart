@@ -4,9 +4,9 @@ class ProductModel extends ChangeNotifier {
   int? id;
   String? name;
   String? description;
-  dynamic? price;
+  dynamic price;
   String? imageUrl;
-  dynamic? rating;
+  dynamic rating;
   int? categoryId;
   String? createdAt;
   String? updatedAt;

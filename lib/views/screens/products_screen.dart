@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import 'package:p_five_ecommerce/models/product_model.dart';
 import 'package:p_five_ecommerce/services/api_handler.dart';
+import 'package:p_five_ecommerce/views/widgets/cart_icon.dart';
 import 'package:p_five_ecommerce/views/widgets/loading_widget.dart';
 import 'package:p_five_ecommerce/views/widgets/product_card.dart';
 
@@ -18,11 +18,8 @@ class ProductScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         title: Text(name.toString()),
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.shopping_cart),
-            onPressed: () => context.push('/cart'),
-          )
+        actions: const [
+          CartIcon(),
         ],
       ),
       body: Padding(

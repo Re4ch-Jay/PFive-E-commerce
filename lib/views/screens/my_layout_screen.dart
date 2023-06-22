@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:p_five_ecommerce/views/screens/home_screen.dart';
 import 'package:p_five_ecommerce/views/screens/notification_screen.dart';
+import 'package:p_five_ecommerce/views/widgets/cart_icon.dart';
 import 'package:p_five_ecommerce/views/widgets/my_navbar.dart';
 
 class MyLayoutScreen extends StatefulWidget {
@@ -32,11 +32,8 @@ class _MyLayoutScreenState extends State<MyLayoutScreen> {
           backgroundColor: Colors.white,
           title: const Text('PFive'),
           centerTitle: true,
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.shopping_cart),
-              onPressed: () => context.push('/cart'),
-            )
+          actions: const [
+            CartIcon(),
           ],
         ),
         body: _body[_selectedIndex],

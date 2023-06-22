@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:p_five_ecommerce/controllers/cart/cart_model.dart';
+import 'package:p_five_ecommerce/controllers/cart/cart_controller.dart';
 import 'package:p_five_ecommerce/controllers/validations/login_validation.dart';
 import 'package:p_five_ecommerce/controllers/validations/signup_validation.dart';
 import 'package:p_five_ecommerce/views/screens/cart_screen.dart';
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
         ListenableProvider<LoginValidation>(
           create: (context) => LoginValidation(),
         ),
-        Provider<Cart>(
+        ListenableProvider<Cart>(
           create: (context) => Cart(),
         ),
       ],
