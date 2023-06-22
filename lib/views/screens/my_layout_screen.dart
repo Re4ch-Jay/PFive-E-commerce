@@ -48,7 +48,79 @@ class _MyLayoutScreenState extends State<MyLayoutScreen> {
             });
           },
         ),
-        drawer: const Drawer(),
+        drawer: Drawer(
+          backgroundColor: Colors.grey.shade800,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                flex: 2,
+                child: Column(
+                  children: const [
+                    DrawerHeader(
+                      child: Center(
+                        child: Image(
+                          image: NetworkImage(
+                              'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BMW_logo_%28gray%29.svg/2048px-BMW_logo_%28gray%29.svg.png'),
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      textColor: Colors.white,
+                      leading: Icon(
+                        Icons.info,
+                        color: Colors.white,
+                      ),
+                      title: Text('About'),
+                    ),
+                    ListTile(
+                      textColor: Colors.white,
+                      leading: Icon(
+                        Icons.contact_mail,
+                        color: Colors.white,
+                      ),
+                      title: Text('Contact'),
+                    ),
+                    ListTile(
+                      textColor: Colors.white,
+                      leading: Icon(
+                        Icons.location_city,
+                        color: Colors.white,
+                      ),
+                      title: Text('Location'),
+                    ),
+                    ListTile(
+                      textColor: Colors.white,
+                      leading: Icon(
+                        Icons.privacy_tip,
+                        color: Colors.white,
+                      ),
+                      title: Text('Privacy'),
+                    ),
+                    ListTile(
+                      textColor: Colors.white,
+                      leading: Icon(
+                        Icons.logout,
+                        color: Colors.white,
+                      ),
+                      title: Text('Logout'),
+                    ),
+                  ],
+                ),
+              ),
+              Column(
+                children: const [
+                  Divider(),
+                  ListTile(
+                    textColor: Colors.white,
+                    leading: Text('Version'),
+                    title: Text('1.0.0'),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

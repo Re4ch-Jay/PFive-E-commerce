@@ -6,13 +6,19 @@ import 'package:p_five_ecommerce/models/product_model.dart';
 
 class APIHandler {
   static Future<dynamic> getData({required String target, String? id}) async {
-    Uri uri = Uri.parse("http://192.168.1.4:8000/api/$target");
+    Uri uri = Uri.parse("http://192.168.1.9:8000/api/$target");
+
     var response = await http.get(uri, headers: {
       "Content-type": "application/json",
       "Accept": "application/json"
     });
 
-    return response;
+    if (response.statusCode == 200) {
+      return response;
+    } else {
+      print('cannot fetch the data');
+      return;
+    }
   }
 
   static Future<List<ProductModel>> getAllProducts() async {
