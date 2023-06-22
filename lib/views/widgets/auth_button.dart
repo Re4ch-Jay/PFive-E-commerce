@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:p_five_ecommerce/validations/signup_validation.dart';
-
 class AuthButton extends StatelessWidget {
   final String buttonText;
   final VoidCallback onTap;

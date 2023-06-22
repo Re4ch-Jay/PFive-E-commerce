@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:p_five_ecommerce/models/cart_model.dart';
-import 'package:p_five_ecommerce/validations/login_validation.dart';
-import 'package:p_five_ecommerce/validations/signup_validation.dart';
+import 'package:p_five_ecommerce/controllers/cart/cart_model.dart';
+import 'package:p_five_ecommerce/controllers/validations/login_validation.dart';
+import 'package:p_five_ecommerce/controllers/validations/signup_validation.dart';
 import 'package:p_five_ecommerce/views/screens/cart_screen.dart';
 import 'package:p_five_ecommerce/views/screens/login_screen.dart';
 import 'package:p_five_ecommerce/views/screens/my_layout_screen.dart';
