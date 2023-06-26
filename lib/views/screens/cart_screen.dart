@@ -56,6 +56,22 @@ class CartScreen extends StatelessWidget {
                           );
                         },
                       ),
+                    ),
+                    GestureDetector(
+                      onTap: () => '',
+                      child: Container(
+                        decoration: const BoxDecoration(color: Colors.black),
+                        padding: const EdgeInsets.all(20),
+                        child: Center(
+                          child: Text(
+                            'Pay Now \$${value.totalPrice}',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      ),
                     )
                   ],
                 )

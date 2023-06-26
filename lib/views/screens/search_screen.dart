@@ -24,6 +24,7 @@ class SearchScreen extends StatelessWidget {
         padding: const EdgeInsets.all(15.0),
         child: Column(
           children: [
+            Text(searchText != '' ? 'Search for $searchText' : ''),
             const SizedBox(
               height: 20,
             ),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-class MyNavbar extends StatelessWidget {
+class MyBottomNavbar extends StatelessWidget {
   final void Function(int)? onTabChange;
   final int selectedIndex;
-  const MyNavbar({
+  const MyBottomNavbar({
     super.key,
     this.onTabChange,
     required this.selectedIndex,
@@ -23,18 +23,15 @@ class MyNavbar extends StatelessWidget {
         tabBorderRadius: 10,
         tabActiveBorder: Border.all(color: Colors.black),
         selectedIndex: selectedIndex,
+        mainAxisAlignment: MainAxisAlignment.center,
         tabs: const [
           GButton(
             icon: Icons.home,
             text: 'Home',
           ),
           GButton(
-            icon: Icons.notifications,
-            text: 'Notifications',
-          ),
-          GButton(
-            icon: Icons.person,
-            text: 'Profile',
+            icon: Icons.favorite,
+            text: 'Favorites',
           ),
         ],
       ),

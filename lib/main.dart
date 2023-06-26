@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:p_five_ecommerce/controllers/cart/cart_controller.dart';
+import 'package:p_five_ecommerce/controllers/favorite/favorite_controller.dart';
 import 'package:p_five_ecommerce/controllers/validations/login_validation.dart';
 import 'package:p_five_ecommerce/controllers/validations/signup_validation.dart';
 import 'package:p_five_ecommerce/views/screens/cart_screen.dart';
+import 'package:p_five_ecommerce/views/screens/favorite_screen.dart';
 import 'package:p_five_ecommerce/views/screens/login_screen.dart';
 import 'package:p_five_ecommerce/views/screens/my_layout_screen.dart';
 import 'package:p_five_ecommerce/views/screens/search_screen.dart';
@@ -38,6 +40,10 @@ class MyApp extends StatelessWidget {
           builder: (context, state) => const CartScreen(),
         ),
         GoRoute(
+          path: '/favorite',
+          builder: (context, state) => const FavoriteScreen(),
+        ),
+        GoRoute(
           path: '/search',
           builder: (context, state) => const SearchScreen(),
         ),
@@ -53,6 +59,9 @@ class MyApp extends StatelessWidget {
         ),
         ListenableProvider<Cart>(
           create: (context) => Cart(),
+        ),
+        ListenableProvider<FavoriteController>(
+          create: (context) => FavoriteController(),
         ),
       ],
       builder: (context, child) => MaterialApp.router(

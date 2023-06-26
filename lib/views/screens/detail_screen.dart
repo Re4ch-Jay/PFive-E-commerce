@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:motion_toast/motion_toast.dart';
 import 'package:p_five_ecommerce/controllers/cart/cart_controller.dart';
+import 'package:p_five_ecommerce/controllers/favorite/favorite_controller.dart';
 import 'package:p_five_ecommerce/models/product_model.dart';
 import 'package:p_five_ecommerce/views/widgets/cart_icon.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +14,8 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FavoriteController favoriteController =
+        Provider.of<FavoriteController>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -84,6 +87,27 @@ class DetailScreen extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Favorite',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () => favoriteController.toggleFavorite(product),
+                    icon: Icon(
+                      favoriteController.isExist(product)
+                          ? Icons.favorite
+                          : Icons.favorite_border,
+                      color: Colors.red,
                     ),
                   ),
                 ],

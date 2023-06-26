@@ -6,7 +6,7 @@ import 'package:p_five_ecommerce/models/product_model.dart';
 
 class APIHandler {
   static Future<dynamic> getData({required String target, String? id}) async {
-    Uri uri = Uri.parse("http://192.168.1.9:8000/api/$target");
+    Uri uri = Uri.parse("http://192.168.1.10:8000/api/$target");
 
     var response = await http.get(uri, headers: {
       "Content-type": "application/json",

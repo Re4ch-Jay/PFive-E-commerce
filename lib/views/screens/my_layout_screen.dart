@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:p_five_ecommerce/views/screens/favorite_screen.dart';
 import 'package:p_five_ecommerce/views/screens/home_screen.dart';
-import 'package:p_five_ecommerce/views/screens/notification_screen.dart';
+import 'package:p_five_ecommerce/views/widgets/app_name.dart';
 import 'package:p_five_ecommerce/views/widgets/cart_icon.dart';
-import 'package:p_five_ecommerce/views/widgets/my_navbar.dart';
+import 'package:p_five_ecommerce/views/widgets/my_drawer.dart';
+import 'package:p_five_ecommerce/views/widgets/my_bottom_navbar.dart';
 
 class MyLayoutScreen extends StatefulWidget {
   const MyLayoutScreen({
@@ -17,8 +19,7 @@ class _MyLayoutScreenState extends State<MyLayoutScreen> {
   int _selectedIndex = 0;
   final List<Widget> _body = <Widget>[
     const HomeScreen(),
-    const NotificationScreen(),
-    const NotificationScreen(),
+    const FavoriteScreen(),
   ];
 
   @override
@@ -30,14 +31,14 @@ class _MyLayoutScreenState extends State<MyLayoutScreen> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: const Text('PFive'),
+          title: const AppName(),
           centerTitle: true,
           actions: const [
             CartIcon(),
           ],
         ),
         body: _body[_selectedIndex],
-        bottomNavigationBar: MyNavbar(
+        bottomNavigationBar: MyBottomNavbar(
           selectedIndex: _selectedIndex,
           onTabChange: (index) {
             setState(() {
@@ -45,79 +46,7 @@ class _MyLayoutScreenState extends State<MyLayoutScreen> {
             });
           },
         ),
-        drawer: Drawer(
-          backgroundColor: Colors.grey.shade800,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                flex: 2,
-                child: Column(
-                  children: const [
-                    DrawerHeader(
-                      child: Center(
-                        child: Image(
-                          image: NetworkImage(
-                              'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BMW_logo_%28gray%29.svg/2048px-BMW_logo_%28gray%29.svg.png'),
-                        ),
-                      ),
-                    ),
-                    ListTile(
-                      textColor: Colors.white,
-                      leading: Icon(
-                        Icons.info,
-                        color: Colors.white,
-                      ),
-                      title: Text('About'),
-                    ),
-                    ListTile(
-                      textColor: Colors.white,
-                      leading: Icon(
-                        Icons.contact_mail,
-                        color: Colors.white,
-                      ),
-                      title: Text('Contact'),
-                    ),
-                    ListTile(
-                      textColor: Colors.white,
-                      leading: Icon(
-                        Icons.location_city,
-                        color: Colors.white,
-                      ),
-                      title: Text('Location'),
-                    ),
-                    ListTile(
-                      textColor: Colors.white,
-                      leading: Icon(
-                        Icons.privacy_tip,
-                        color: Colors.white,
-                      ),
-                      title: Text('Privacy'),
-                    ),
-                    ListTile(
-                      textColor: Colors.white,
-                      leading: Icon(
-                        Icons.logout,
-                        color: Colors.white,
-                      ),
-                      title: Text('Logout'),
-                    ),
-                  ],
-                ),
-              ),
-              Column(
-                children: const [
-                  Divider(),
-                  ListTile(
-                    textColor: Colors.white,
-                    leading: Text('Version'),
-                    title: Text('1.0.0'),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
+        drawer: const MyDrawer(),
       ),
     );
   }
