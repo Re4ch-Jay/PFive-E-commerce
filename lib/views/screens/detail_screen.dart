@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:motion_toast/motion_toast.dart';
 import 'package:p_five_ecommerce/controllers/cart/cart_controller.dart';
 import 'package:p_five_ecommerce/controllers/favorite/favorite_controller.dart';
@@ -16,6 +15,7 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     FavoriteController favoriteController =
         Provider.of<FavoriteController>(context);
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -91,26 +91,14 @@ class DetailScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Favorite',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () => favoriteController.toggleFavorite(product),
-                    icon: Icon(
-                      favoriteController.isExist(product)
-                          ? Icons.favorite
-                          : Icons.favorite_border,
-                      color: Colors.red,
-                    ),
-                  ),
-                ],
+              IconButton(
+                onPressed: () => favoriteController.toggleFavorite(product),
+                icon: Icon(
+                  favoriteController.isExist(product)
+                      ? Icons.favorite
+                      : Icons.favorite_border,
+                  color: Colors.red,
+                ),
               ),
               const Text(
                 'Description',
@@ -119,7 +107,10 @@ class DetailScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(product.description!)
+              Text(product.description!),
+              SizedBox(
+                height: size.height * 0.1,
+              ),
             ],
           ),
         ),
